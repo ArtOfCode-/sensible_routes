@@ -36,6 +36,20 @@ class SensibleRoute
   def match?(path)
     @regex.match?(path)
   end
+
+  def self.hook_rails
+    Rails.instance_eval <<EOF
+      cache.delete :sensible_routes
+    
+      def self.sensible_routes
+        Rails.cache.fetch :sensible_routes do
+          routes = SensibleRouteCollection.new
+          Rails.application.routes.routes.to_a.each { |r| routes.add(SensibleRoute.new(r)) }
+          return routes
+        end
+      end
+EOF
+  end
 end
 
 class SensibleRouteCollection
@@ -85,17 +99,5 @@ class SensibleRouteCollection
   def without(*paths)
     routes = paths.map { |p| match_for p }
     self.class.new(routes: @routes - routes)
-  end
-end
-
-module Rails
-  cache.delete :sensible_routes
-
-  def self.sensible_routes
-    Rails.cache.fetch :sensible_routes do
-      routes = SensibleRouteCollection.new
-      Rails.application.routes.routes.to_a.each { |r| routes.add(SensibleRoute.new(r)) }
-      return routes
-    end
   end
 end

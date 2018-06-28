@@ -1,39 +1,29 @@
-# Sensible::Routes
+# `sensible_routes`
+Simple and comprehensible route introspection library for Rails.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/sensible/routes`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+## Huh?
+In a stock Rails app, `rake routes` is essentially the only way to get any introspection of routes. There's no programmatic access to them in detail,
+beyond basic route helpers. This gem aims to make detailed programmatic introspection possible.
 
 ## Installation
+Add the following line to your Gemfile and run `bundle install`:
 
-Add this line to your application's Gemfile:
+    gem 'sensible_routes'
+    
+Then, create a new initializer (say `config/initializers/sensible_routes.rb`), with this as its only content:
 
-```ruby
-gem 'sensible-routes'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install sensible-routes
-
+    SensibleRoute.hook_rails
+    
 ## Usage
+At a basic level, you can get a list of your application's routes in a useful form with this:
 
-TODO: Write usage instructions here
+    Rails.sensible_routes
+    
+That returns a SensibleRouteCollection, which is array-like in that it responds to many of the same methods. You can also filter the collection down
+further - see the API documentation for full details.
 
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/sensible-routes.
+## Contributions
+Welcome. Ping me a PR. For large changes you should probably open an issue first to discuss.
 
 ## License
-
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+Available under the terms of the MIT license.

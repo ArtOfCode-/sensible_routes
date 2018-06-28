@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'sensible_routes/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'sensible-routes'
+  spec.name          = 'sensible_routes'
   spec.version       = SensibleRoutes::VERSION
   spec.authors       = ['ArtOfCode-']
   spec.email         = ['hello@artofcode.co.uk']
