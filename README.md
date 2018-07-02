@@ -20,7 +20,7 @@ At a basic level, you can get a list of your application's routes in a useful fo
     Rails.sensible_routes
     
 That returns a SensibleRouteCollection, which is array-like in that it responds to many of the same methods. You can also filter the collection down
-further - see the API documentation for full details.
+further - see the [documentation](https://github.com/ArtOfCode-/sensible_routes/wiki) for full details.
 
 ## Contributions
 Welcome. Ping me a PR. For large changes you should probably open an issue first to discuss.

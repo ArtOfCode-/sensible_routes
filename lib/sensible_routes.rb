@@ -91,6 +91,25 @@ class SensibleRouteCollection
     @routes
   end
 
+  # Get a route at a particular index from the collection.
+  # @param idx  the index from which to return an element
+  # @return SensibleRoute
+  def [](idx)
+    @routes[idx]
+  end
+
+  # Get the first route in the collection.
+  # @return SensibleRoute
+  def first
+    @routes[0]
+  end
+
+  # Get the last route in the collection.
+  # @return SensibleRoute
+  def last
+    @routes[-1]
+  end
+
   # Filter the collection to only those entries that match the given block.
   # @param &block  a block that returns true to retain an element, or false to reject it
   # @return SensibleRouteCollection
