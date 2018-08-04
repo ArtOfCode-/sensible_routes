@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    sensible_routes (0.0.2)
+    sensible_routes (0.0.4)
       rails (~> 5)
 
 GEM

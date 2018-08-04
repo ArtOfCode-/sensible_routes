@@ -24,6 +24,8 @@ class SensibleRoute
                    else
                      '[^/]+'
                    end
+      elsif part.is_a? ActionDispatch::Journey::Format
+        matcher << '(?:\.[^/]+)?'
       end
     end
 
